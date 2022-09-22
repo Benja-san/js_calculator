@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        function calculator(){
+            console.log("Hello World")
+            let a = parseInt(prompt("Enter a number"))
+            let b = prompt("Enter an operator")
+            let c = parseInt(prompt("Enter a number"))
+            switch(b){
+                case "+" :
+                console.log(a+c)
+                break;
+                case "-" :
+                console.log(a-c)
+                break;
+                case "/" :
+                console.log(a/c)
+                break;
+                default :
+                console.log("invalid operator")
+            }
+        }
+        calculator()
+        */
+       const playerName = prompt("What's your name ?")
+       const random = Math.floor(Math.random() * 100) +1
+       let hasWon = false
+       let number = 0
+        for(let i = 0; number!==random; i++){
+            number = parseInt(prompt("What's your number"))
+            if(number < random){
+            console.log("Try again, it is more")
+            } else if(number > random){
+                console.log("Try again, it is less")
+            }else{
+                hasWon = !hasWon
+                console.log("You won !")
+            }
+        }
+        //GG ALI !!!!
+       /*while(!hasWon){
+        if(playerNumberChoice < random){
+            console.log("Try again, it is more")
+        } else if(playerNumberChoice > random){
+            console.log("Try again, it is less")
+        }else{
+            hasWon = !hasWon
+            console.log("You won !")
+        }
+       }*/
+    </script>
+</body>
+</html>
