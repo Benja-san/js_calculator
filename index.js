@@ -1,61 +1,57 @@
 console.log("hello mate !")
-//Calculator part
-// let firstValue = parseInt(prompt("Enter a number"))
-// let operator = prompt("Enter an operator")
-// let secondValue = parseInt(prompt("Enter a second number"))
 
-// function calculator(firstNumber, myOperator, secondNumber) {
-//   let result
-//   switch (myOperator) {
+// let firstValue = Number(prompt("please enter a number"))
+// let operator = prompt("please enter an operator")
+// let secondValue = Number(prompt("please enter a second number"))
+
+// // use isNaN function to check if my prompt is an integer
+// if (!isNaN(firstValue) && !isNaN(secondValue)) {
+//   let answer
+//   switch (operator) {
 //     case "+":
-//       result = firstNumber + secondNumber
+//       answer = firstValue + secondValue
 //       break
 //     case "-":
-//       result = firstNumber - secondNumber
-//       break
-//     case "/":
-//       result =
-//         secondNumber === 0
-//           ? "You'll blow the universe"
-//           : firstNumber / secondNumber
+//       answer = firstValue - secondValue
 //       break
 //     case "*":
-//       result = firstNumber * secondNumber
+//       answer = firstValue * secondValue
+//       break
+//     case "/":
+//       answer = firstValue / secondValue
 //       break
 //     default:
+//       answer = "incorrect operator"
 //       break
 //   }
+//   console.log(answer)
+// } else console.log("incorrect numbers")
 
-//   let message
-//   if (isNaN(firstNumber) || isNaN(secondNumber) || !result) {
-//     message = "Please enter a correct prompt"
-//   } else {
-//     message = `${firstNumber} ${myOperator} ${secondNumber} = ${result}`
-//   }
-//   return message
-// }
-
-// console.log(calculator(firstValue, operator, secondValue))
-
-// The perfect price
-const userName = prompt("Enter your name")
-console.log(`Hello ${userName}`)
+const playerName = prompt("Select your player name")
+console.log(`Hello ${playerName}`)
 const rightPrice = Math.ceil(Math.random() * 100)
-let result
+
+let magicNumber
+let message
+let turn = 0
 let hasWon = false
-for (let i = 1; !hasWon; i++) {
-  let guessPrice = parseInt(prompt("select a number between 0 and 100"))
-  if (isNaN(guessPrice)) {
-    result = "please enter a number"
-  } else {
-    if (guessPrice < rightPrice) {
-      result = "it's higher"
-    } else if (guessPrice > rightPrice) {
-      result = "it's lower"
-    } else {
-      hasWon = true
-      result = `You won dude ! It took you ${i} turn.s`
-    }
+
+while (!hasWon) {
+  turn++
+  console.log(`round number ${turn}`)
+  if (magicNumber === undefined) message = "Please select a number"
+  else if (isNaN(magicNumber))
+    message = "incorrect value, please use your brain"
+  if (magicNumber > rightPrice) {
+    message = "It is lower"
   }
-  console.log(result)
+  if (magicNumber < rightPrice) {
+    message = "It is higher"
+  }
+  if (magicNumber === rightPrice) {
+    hasWon = true
+    message = `Congratulation ${playerName} it took you ${turn} rounds!`
+  }
+  console.log(message)
+  if (!hasWon) magicNumber = parseInt(prompt("Enter a price"))
 }
